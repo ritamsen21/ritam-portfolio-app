@@ -1,41 +1,175 @@
-/* src/styles.scss */
+/* src/styles.scss (Complete Snippet with Icon & Font Fixes) */
+
+/* poppins-regular - latin */
+@font-face {
+    font-display: swap;
+    /* Check for best display option */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JFdFgcEggjEw.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+2082, U+2087, U+2089, U+20B9, U+20C0-20FF, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* poppins-500 - latin */
+@font-face {
+    font-display: swap;
+    /* Check for best display option */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JFdFgcEggHVeDJFcGP1ww.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+2082, U+2087, U+2089, U+20B9, U+20C0-20FF, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* poppins-semibold - latin */
+@font-face {
+    font-display: swap;
+    /* Check for best display option */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://fonts.gstatic.com/s/poppins/v20/pxiByp8kv8JFdFgcEggHSgDJFcGP1ww.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+2082, U+2087, U+2089, U+20B9, U+20C0-20FF, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 $primary-color: #007bff;
 $dark-bg: #222;
-/* Darker background */
 $dark-text: #eee;
-/* Lighter text for better contrast */
 $light-bg: #f8f9fa;
 $light-text: #333;
-/* Slightly darker text for light theme */
 $transition-duration: 0.3s;
-$theme-switch-size: 2rem;
-/* Size for the theme switch icon */
+$theme-switch-size: 1.6rem;
+$nav-item-spacing: 0.7rem;
+/* Adjusted nav item spacing */
+$nav-icon-size: 1.0rem;
+$nav-icon-margin: 0.5rem;
+$navbar-brand-icon-size: 1.4rem;
+$navbar-brand-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$navbar-brand-font-weight: 600;
 
 body {
-    font-family: 'Arial', sans-serif;
-    transition: background-color $transition-duration, color $transition-duration;
+    /* Use a web-safe font stack */
+        /* Use Poppins font */
+            font-family: 'Poppins', sans-serif;
+            /* 'Poppins' is now the primary font */
+            transition: background-color $transition-duration, color $transition-duration;
+            background-color: $light-bg;
 }
 
 .dark-theme {
     background-color: $dark-bg;
     color: $dark-text;
 
-    .navbar-dark {
-        background-color: darken($dark-bg, 10%);
+    body {
+        background-color: $dark-bg;
+    }
 
-        .navbar-brand,
+    .navbar-dark.classy-navbar {
+        background-color: #282828;
+        border-bottom: none;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        /* Force white font color for ALL text in navbar */
+        * {
+            color: #fff !important;
+            /* !important to override other styles */
+        }
+
+        .navbar-brand {
+            color: #f0f0f0;
+            /* Fallback color - will be overridden by * rule to white */
+            font-size: 1.6rem;
+            font-family: $navbar-brand-font-family;
+            font-weight: $navbar-brand-font-weight;
+
+            i.bi {
+                color: #fff;
+                /* Force white color for navbar brand icon */
+                font-size: $navbar-brand-icon-size;
+                vertical-align: middle;
+                margin-right: 0.4rem;
+                opacity: 0.9;
+            }
+        }
+
+        .navbar-nav.me-auto .nav-item {
+            margin-left: $nav-item-spacing;
+            margin-right: $nav-item-spacing;
+        }
+
         .nav-link {
             color: $dark-text;
+            /* Fallback color - will be overridden by * rule to white */
+            opacity: 0.85;
+            transition: opacity $transition-duration, color $transition-duration;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            letter-spacing: 0.01em;
+
+            &:hover,
+            &.active {
+                color: $primary-color;
+                opacity: 1;
+            }
+
+            i.bi {
+                color: #ddd;
+                /* Force light color for icons in nav links */
+                font-size: $nav-icon-size;
+                margin-left: $nav-icon-margin;
+                margin-right: 0;
+                opacity: 0.8;
+            }
+        }
+
+        .nav-item .theme-toggle-btn.nav-link {
+            /* Target theme toggle button */
+            color: #fff;
+            /* Force white color for theme switch icons */
+            background-color: rgba(255, 255, 255, 0.08);
+            /* Slightly darker background */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            /* Subtle border */
+            cursor: pointer;
+            font-size: $theme-switch-size;
+            padding: 0.4rem 0.6rem;
+            margin-left: 0.5rem;
+            transition: opacity $transition-duration, background-color $transition-duration, border-color $transition-duration;
+            border-radius: 0.4rem;
+            opacity: 0.9;
 
             &:hover {
-                color: lighten($dark-text, 20%);
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.15);
+                border-color: rgba(255, 255, 255, 0.25);
+                color: inherit;
             }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
+        }
+
+        .navbar-nav.ms-auto {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
         }
     }
 
     .card {
         background-color: darken($dark-bg, 8%);
-        /* Slightly lighter card in dark mode */
         color: $dark-text;
         border: 1px solid lighten($dark-bg, 15%);
     }
@@ -53,17 +187,107 @@ body {
     background-color: $light-bg;
     color: $light-text;
 
-    .navbar-dark {
-        /* Even in light theme, keep navbar dark or adjust as needed */
-        background-color: $dark-bg;
+    body {
+        background-color: $light-bg;
+    }
 
-        .navbar-brand,
+    .navbar-dark.classy-navbar {
+        background-color: #f8f8f8;
+        border-bottom: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+        padding-top: 0.8rem;
+        padding-bottom: 0.8rem;
+
+        /* Force white font color for ALL text in navbar */
+        * {
+            color: #fff !important;
+            /* !important to override other styles */
+        }
+
+        .navbar-brand {
+            color: #444;
+            /* Fallback color - will be overridden by * rule to white */
+            font-size: 1.6rem;
+            font-family: $navbar-brand-font-family;
+            font-weight: $navbar-brand-font-weight;
+
+            i.bi {
+                color: #333;
+                /* Force a darker color for navbar brand icon in light mode */
+                font-size: $navbar-brand-icon-size;
+                vertical-align: middle;
+                margin-right: 0.4rem;
+                opacity: 0.8;
+            }
+        }
+
+        .navbar-nav.me-auto .nav-item {
+            margin-left: $nav-item-spacing;
+            margin-right: $nav-item-spacing;
+        }
+
         .nav-link {
-            color: $dark-text;
+            color: $light-text;
+            /* Fallback color - will be overridden by * rule to white */
+            opacity: 0.8;
+            transition: opacity $transition-duration, color $transition-duration;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            justify-content: flex-start;
+            letter-spacing: 0.01em;
+
+            &:hover,
+            &.active {
+                color: $primary-color;
+                opacity: 1;
+            }
+
+            i.bi {
+                color: #555;
+                /* Force darker color for icons in nav links in light mode */
+                font-size: $nav-icon-size;
+                margin-left: $nav-icon-margin;
+                margin-right: 0;
+                opacity: 0.7;
+            }
+        }
+
+        .nav-item .theme-toggle-btn.nav-link {
+            /* Target theme toggle button */
+            color: #333;
+            /* Force darker color for theme switch icons in light mode */
+            background-color: rgba(255, 255, 255, 0.08);
+            /* Slightly darker background */
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            /* Subtle border */
+            cursor: pointer;
+            font-size: $theme-switch-size;
+            padding: 0.4rem 0.6rem;
+            margin-left: 0.5rem;
+            transition: opacity $transition-duration, background-color $transition-duration, border-color $transition-duration;
+            border-radius: 0.4rem;
+            opacity: 0.9;
 
             &:hover {
-                color: lighten($dark-text, 20%);
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.15);
+                border-color: rgba(255, 255, 255, 0.25);
+                color: inherit;
             }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
+        }
+
+        .navbar-nav.ms-auto {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
         }
     }
 
@@ -136,40 +360,11 @@ body {
     animation: fadeIn $transition-duration ease-out forwards;
 }
 
-/* Theme Switch Button Styling */
-.nav-item .btn.nav-link {
-    background: transparent;
-    border: none;
-    color: inherit;
-    /* Inherit text color from navbar */
-    cursor: pointer;
-    font-size: $theme-switch-size;
-    padding: 0;
-    /* Remove padding for button */
-    margin-left: 0.5rem;
-    /* Add some spacing from nav links */
-    transition: opacity $transition-duration;
-    /* Smooth opacity transition */
+/* Theme Switch Button Styling (Horizontal Navbar - Right Aligned) - IMPROVED VISIBILITY - (Styles repeated in .dark-theme and .light-theme navbar blocks now) */
 
-    &:hover {
-        opacity: 0.8;
-        /* Slightly fade on hover */
-        color: inherit;
-        /* Ensure hover color is also inherited */
-    }
 
-    &:focus {
-        outline: none;
-        /* Remove focus outline if you want */
-        box-shadow: none;
-        /* Remove focus box-shadow if you want */
-    }
-}
-
-/* Bootstrap Icons Styles (adjust size if needed) */
+/* Bootstrap Icons Styles */
 .bi {
-    font-size: $theme-switch-size;
-    /* Make Bootstrap Icons size consistent with button */
+    font-size: 1.2rem;
     vertical-align: middle;
-    /* Align icons vertically in button */
 }
