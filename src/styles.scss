@@ -1,1 +1,175 @@
-/* You can add global styles to this file, and also import other style files */
+/* src/styles.scss */
+$primary-color: #007bff;
+$dark-bg: #222;
+/* Darker background */
+$dark-text: #eee;
+/* Lighter text for better contrast */
+$light-bg: #f8f9fa;
+$light-text: #333;
+/* Slightly darker text for light theme */
+$transition-duration: 0.3s;
+$theme-switch-size: 2rem;
+/* Size for the theme switch icon */
+
+body {
+    font-family: 'Arial', sans-serif;
+    transition: background-color $transition-duration, color $transition-duration;
+}
+
+.dark-theme {
+    background-color: $dark-bg;
+    color: $dark-text;
+
+    .navbar-dark {
+        background-color: darken($dark-bg, 10%);
+
+        .navbar-brand,
+        .nav-link {
+            color: $dark-text;
+
+            &:hover {
+                color: lighten($dark-text, 20%);
+            }
+        }
+    }
+
+    .card {
+        background-color: darken($dark-bg, 8%);
+        /* Slightly lighter card in dark mode */
+        color: $dark-text;
+        border: 1px solid lighten($dark-bg, 15%);
+    }
+
+    a {
+        color: $primary-color;
+
+        &:hover {
+            color: lighten($primary-color, 15%);
+        }
+    }
+}
+
+.light-theme {
+    background-color: $light-bg;
+    color: $light-text;
+
+    .navbar-dark {
+        /* Even in light theme, keep navbar dark or adjust as needed */
+        background-color: $dark-bg;
+
+        .navbar-brand,
+        .nav-link {
+            color: $dark-text;
+
+            &:hover {
+                color: lighten($dark-text, 20%);
+            }
+        }
+    }
+
+    .card {
+        background-color: $light-bg;
+        color: $light-text;
+        border: 1px solid #ddd;
+    }
+
+    a {
+        color: $primary-color;
+
+        &:hover {
+            color: darken($primary-color, 15%);
+        }
+    }
+}
+
+/* General Styles - can be outside theme classes */
+.section-padding {
+    padding: 40px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 3px;
+        width: 80px;
+        background-color: $primary-color;
+    }
+}
+
+.card {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow $transition-duration;
+
+    &:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Animations (Example - Fade In) */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn $transition-duration ease-out forwards;
+}
+
+/* Theme Switch Button Styling */
+.nav-item .btn.nav-link {
+    background: transparent;
+    border: none;
+    color: inherit;
+    /* Inherit text color from navbar */
+    cursor: pointer;
+    font-size: $theme-switch-size;
+    padding: 0;
+    /* Remove padding for button */
+    margin-left: 0.5rem;
+    /* Add some spacing from nav links */
+    transition: opacity $transition-duration;
+    /* Smooth opacity transition */
+
+    &:hover {
+        opacity: 0.8;
+        /* Slightly fade on hover */
+        color: inherit;
+        /* Ensure hover color is also inherited */
+    }
+
+    &:focus {
+        outline: none;
+        /* Remove focus outline if you want */
+        box-shadow: none;
+        /* Remove focus box-shadow if you want */
+    }
+}
+
+/* Bootstrap Icons Styles (adjust size if needed) */
+.bi {
+    font-size: $theme-switch-size;
+    /* Make Bootstrap Icons size consistent with button */
+    vertical-align: middle;
+    /* Align icons vertically in button */
+}
