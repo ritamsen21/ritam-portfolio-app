@@ -1,6 +1,8 @@
 @use '../../../styles.scss' as styles;
+
 .contact-section {
     text-align: center;
+
     .section-description {
         max-width: 700px;
         margin: 0 auto 3rem;
@@ -119,6 +121,7 @@
     .back-to-home-link {
         margin-bottom: 1.8rem;
         text-align: left;
+
         @media (min-width: 768px) {
             text-align: left;
             margin-bottom: 2.2rem;
