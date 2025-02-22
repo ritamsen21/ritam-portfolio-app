@@ -1,73 +1,131 @@
-/* src/app/home/home.component.scss */
+/* src/app/home/home.component.scss (Updated for Hero Section and Buttons) */
+@use '../../../styles.scss' as styles;
 .home-section {
     text-align: center;
-    /* Default text alignment for the whole section */
 
     .hero-content {
         text-align: left;
-        /* Left-align text in hero content on larger screens */
-        margin-bottom: 2rem;
-        /* Spacing below hero content */
+        margin-bottom: 2.5rem;
+        /* Increased spacing below hero content */
     }
 
     h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        line-height: 1.2;
+        font-size: 2.8rem;
+        /* Slightly larger headline font size */
+        font-weight: 700;
+        /* Bolder headline */
+        margin-bottom: 1.2rem;
+        line-height: 1.1;
+        font-family: monospace;
+        /* Tighter line height for headline */
+        color: #333;
+        /* Darker headline color for better contrast */
     }
 
     .lead {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
+        /* Slightly larger lead text */
         font-weight: 500;
-        color: #666;
-        /* Slightly muted color for tagline */
-        margin-bottom: 1.5rem;
+        color: #555;
+        /* Darker muted color for tagline */
+        margin-bottom: 2rem;
+        /* Increased spacing below tagline */
     }
 
     .hero-image {
         text-align: center;
-        /* Center image in its column */
+    }
+
+    .profile-image.rounded-circle {
+        /* Target profile image specifically */
+        max-width: 100%;
+        /* Ensure image is responsive */
+        height: auto;
+        border-radius: 50%;
+        /* Make sure it's circular */
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        /* Subtle shadow for profile image */
+        border: 4px solid #fff;
+        /* White border around profile image for better definition */
+    }
+
+    /* Hero Section Buttons Styling - IMPROVED FONTS & COLORS */
+    .hero-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        transition: transform 0.2s ease-in-out;
+        font-family: 'Poppins', sans-serif;
+        /* Explicitly set font-family to Poppins */
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    /* Primary Hero Button (e.g., "Explore My Work") */
+    .btn-primary.hero-btn {
+        background-color: #0080ff;
+        /* Slightly more vibrant primary blue */
+        border-color: #0080ff;
+        /* Match border color */
+        color: #fff;
+        /* White text color for primary button */
+
+        &:hover {
+            background-color: #0070e0;
+            /* Darken slightly on hover */
+            border-color: #0070e0;
+        }
+    }
+
+    /* Outline Hero Button (e.g., "Get in Touch") */
+    .btn-outline-primary.hero-btn {
+        border-color: styles.$primary-color;
+        /* Keep primary color for border */
+        color: styles.$primary-color;
+        /* Keep primary color for text */
+
+        &:hover {
+            background-color: styles.$primary-color;
+            /* Fill background on hover with primary color */
+            color: #fff;
+            /* White text on hover */
+        }
     }
 
     .skills-section {
         text-align: center;
-        /* Center align skills section heading and badges */
     }
 
     .skills-list {
         display: flex;
         flex-wrap: wrap;
-        /* Allow skills to wrap to the next line */
         justify-content: center;
-        /* Center skills horizontally */
         gap: 0.8rem;
-        /* Spacing between skill badges */
         margin-top: 1rem;
     }
 
     .skill-badge {
         background-color: #e0e7ff;
-        /* Light background for badges */
         color: #374151;
-        /* Darker text color for badges */
         padding: 0.6rem 1.2rem;
         border-radius: 2rem;
-        /* Pill-shaped badges */
         font-size: 0.9rem;
         font-weight: 500;
         display: inline-block;
-        /* Treat as inline-block for spacing and layout */
         margin-bottom: 0.5rem;
-        /* Spacing below each badge */
     }
 }
 
 @media (min-width: 768px) {
-
-    /* Medium devices and up */
     .home-section {
         text-align: left;
-        /* Reset text alignment to left for larger screens */
+    }
+
+    .hero-content {
+        margin-bottom: 0;
+        /* Remove margin-bottom on larger screens */
     }
 }

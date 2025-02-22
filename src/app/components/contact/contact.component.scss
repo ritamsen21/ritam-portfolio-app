@@ -1,0 +1,158 @@
+/* src/app/components/contact/contact.component.scss */
+@use '../../../styles.scss' as styles;
+
+.contact-section {
+    text-align: center;
+
+    .section-description {
+        max-width: 700px;
+        /* Limit width of description text */
+        margin-left: auto;
+        margin-right: auto;
+        color: #777;
+        font-size: 1.1rem;
+        line-height: 1.7;
+        margin-bottom: 3rem;
+    }
+
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        /* Spacing between contact info and resume sections */
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            /* Side-by-side layout on larger screens */
+            justify-content: space-around;
+            text-align: left;
+            /* Left-align text in sections on larger screens */
+        }
+    }
+
+    .contact-info,
+    .resume-download {
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: #fff;
+        /* White background for sections */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        /* Subtle shadow */
+        max-width: 400px;
+        /* Limit width of each section */
+        width: 100%;
+    }
+
+    h3 {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        font-weight: 600;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem;
+            color: #666;
+
+            i.bi {
+                margin-right: 0.7rem;
+                font-size: 1.2rem;
+                color: styles.$primary-color;
+                /* Use primary color for icons */
+            }
+
+            strong {
+                margin-right: 0.4rem;
+                font-weight: 600;
+                color: #444;
+            }
+
+            a {
+                color: styles.$primary-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .social-icons {
+        display: inline-block;
+        /* Keep icons inline but allow width/height adjustments */
+        margin-top: 0.8rem;
+    }
+
+    .social-icon-link {
+        display: inline-flex;
+        /* Use flexbox for better icon alignment */
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        /* Icon size */
+        color: #777;
+        margin: 0 0.4rem;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            color: styles.$primary-color;
+            /* Hover color */
+        }
+    }
+
+
+    .resume-download {
+        text-align: center;
+        /* Center align content in resume section */
+    }
+
+    .resume-btn {
+        padding: 0.8rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease;
+
+        i.bi {
+            font-size: 1.1rem;
+        }
+    }
+
+        /* src/app/components/contact/contact.component.scss (Add at the end - Optional Styling) */
+    
+        .back-to-home-link {
+            margin-bottom: 2rem;
+            /* Add some space below the back link */
+            text-align: left;
+            /* Align link to the left */
+    
+            @media (min-width: 768px) {
+                /* On larger screens */
+                text-align: left;
+                /* Keep left alignment */
+                margin-bottom: 2.5rem;
+            }
+        }
+    
+        .back-home-btn {
+            padding: 0.6rem 1.4rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+}
