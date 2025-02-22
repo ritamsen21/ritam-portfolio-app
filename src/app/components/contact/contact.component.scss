@@ -1,8 +1,6 @@
 @use '../../../styles.scss' as styles;
-
 .contact-section {
     text-align: center;
-
     .section-description {
         max-width: 700px;
         margin: 0 auto 3rem;
@@ -36,9 +34,7 @@
 
     h3 {
         font-size: 1.6rem;
-        /* Slightly smaller heading */
         margin-bottom: 1.2rem;
-        /* Slightly reduced margin */
         color: #333;
         font-weight: 600;
     }
@@ -110,37 +106,28 @@
 
     .resume-btn {
         padding: 0.7rem 1.8rem;
-        /* Reduced padding */
         font-size: 1rem;
-        /* Reduced font size */
         font-weight: 500;
         border-radius: 0.5rem;
         transition: background-color 0.3s ease;
 
         i.bi {
             font-size: 1rem;
-            /* Reduced icon size in button */
         }
     }
 
-
     .back-to-home-link {
         margin-bottom: 1.8rem;
-        /* Reduced margin */
         text-align: left;
-
         @media (min-width: 768px) {
             text-align: left;
             margin-bottom: 2.2rem;
-            /* Reduced margin for larger screens */
         }
     }
 
     .back-home-btn {
         padding: 0.5rem 1.2rem;
-        /* Reduced padding */
         font-size: 0.9rem;
-        /* Reduced font size */
         font-weight: 500;
     }
 }
