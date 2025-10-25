@@ -1,5 +1,20 @@
 /* src/styles.scss (Complete Snippet with Icon & Font Fixes) */
 
+/* Import AOS styles */
+@import 'aos/dist/aos.css';
+
+/* Ensure AOS elements are always visible - fallback for animation issues */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* AOS animations will override these when they trigger */
+[data-aos].aos-animate {
+  opacity: 1 !important;
+  transform: translate(0) scale(1) !important;
+}
+
 /* poppins-regular - latin */
 @font-face {
     font-display: swap;
@@ -55,6 +70,13 @@ body {
             /* 'Poppins' is now the primary font */
             transition: background-color $transition-duration, color $transition-duration;
             background-color: $light-bg;
+            margin: 0;
+            padding: 0;
+            
+    &.dark-mode {
+        background-color: #0f172a;
+        color: #e2e8f0;
+    }
 }
 
 .dark-theme {

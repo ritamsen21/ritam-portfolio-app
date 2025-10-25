@@ -1,27 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark classy-navbar">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/home">
-      <i class="bi bi-laptop me-2"></i> Ritam Sen Portfolio
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        
-   
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <button class="btn nav-link theme-toggle-btn" (click)="toggleTheme()" aria-label="Toggle Theme">
-            <i class="bi bi-moon-fill" *ngIf="!isDarkMode"></i>
-            <i class="bi bi-sun-fill" *ngIf="isDarkMode"></i>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div class="page-wrapper" [class.dark-mode]="isDarkMode">
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" (click)="toggleTheme()" [class.dark]="isDarkMode" aria-label="Toggle Theme">
+    <i class="bi" [class.bi-moon-stars-fill]="!isDarkMode" [class.bi-sun-fill]="isDarkMode"></i>
+  </button>
 
-<div class="container mt-4">
-  <router-outlet></router-outlet>
+  <!-- Social Links -->
+  <div class="social-links-top">
+    <a href="https://www.linkedin.com/in/ritam21/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+      <i class="bi bi-linkedin"></i>
+    </a>
+    <a href="https://medium.com/@ritamsen21" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Medium">
+      <i class="bi bi-medium"></i>
+    </a>
+  </div>
+
+  <!-- Quick Nav -->
+  <div class="quick-nav">
+    <a routerLink="/home" class="quick-nav-item" routerLinkActive="active">
+      <i class="bi bi-house-fill"></i>
+    </a>
+    <a routerLink="/about" class="quick-nav-item" routerLinkActive="active">
+      <i class="bi bi-person-fill"></i>
+    </a>
+    <a routerLink="/skills" class="quick-nav-item" routerLinkActive="active">
+      <i class="bi bi-stars"></i>
+    </a>
+    <a routerLink="/experience" class="quick-nav-item" routerLinkActive="active">
+      <i class="bi bi-briefcase-fill"></i>
+    </a>
+    <a routerLink="/projects" class="quick-nav-item" routerLinkActive="active">
+      <i class="bi bi-code-square"></i>
+    </a>
+    <a routerLink="/contact" class="quick-nav-item" routerLinkActive="active">
+      <i class="bi bi-envelope-fill"></i>
+    </a>
+  </div>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="scroll-progress" [style.width.%]="scrollProgress"></div>
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- Background Animation -->
+  <div class="bg-animation">
+    <div class="gradient-sphere"></div>
+    <div class="gradient-sphere"></div>
+    <div class="gradient-sphere"></div>
+  </div>
 </div>
