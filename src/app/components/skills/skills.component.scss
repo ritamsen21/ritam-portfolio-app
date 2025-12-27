@@ -1,9 +1,27 @@
 :host-context(.dark-mode) .skills-section {
   background: linear-gradient(135deg, #1f1f2e 0%, #2d1f2e 100%);
+
+  .section-title {
+    color: #ffffff;
+  }
+
+  .section-description {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .skill-card {
+    h3 {
+      color: #ffffff;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
 }
 
 .skills-section {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #975d9e 0%, #f5576c 100%);
   min-height: 100vh;
   color: white;
   position: relative;

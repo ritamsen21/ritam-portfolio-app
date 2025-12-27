@@ -2,10 +2,28 @@
 
 :host-context(.dark-mode) .contact-section {
     background: linear-gradient(135deg, #1f1f2e 0%, #2e1f1f 100%);
+
+    .section-title {
+        color: #ffffff;
+    }
+
+    .section-description {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        color: #ffffff;
+    }
+
+    .contact-info p,
+    .contact-item p {
+        color: rgba(255, 255, 255, 0.8);
+    }
 }
 
 .contact-section {
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    background: linear-gradient(135deg, #e1c39a 0%, #ae6046 100%);
     min-height: 100vh;
     overflow-x: hidden;
     text-align: center;
@@ -121,12 +139,12 @@
             }
 
             a {
-                color: #fcb69f;
+                color: #ffc8b6;
                 text-decoration: none;
                 transition: color 0.3s ease;
 
                 &:hover {
-                    color: #f8a080;
+                    color: #d48d73;
                     text-decoration: underline;
                 }
             }
